@@ -54,7 +54,7 @@
       <h2 class="u-text u-text-default u-text-2" spellcheck="false"> Welcome E.S.P.L</h2>
       <h3 class="u-text u-text-body-alt-color u-text-3">Official SeaL Esports Clan presents Customs &amp; Tournaments
         Matches</h3>
-      <a href=""
+      <a href="#carousel_2112"
         class="u-active-white u-align-center u-border-2 u-border-active-white u-border-hover-white u-border-white u-btn u-btn-round u-button-style u-hover-feature u-hover-white u-none u-radius-8 u-btn-1"
         data-animation-name="hinge" data-animation-duration="1000" data-animation-direction="">read more</a>
     </div>
@@ -90,63 +90,98 @@
           <mat-tab-group>
             <mat-tab label="Login">
               <div class="u-form u-form-1">
-                <form action="https://nicepage.com/editor/Forms/Process" method="POST"
-                  class="u-clearfix u-form-horizontal u-form-spacing-0 u-inner-form" style="padding: 0px;"
-                  source="email" name="form">
-                  <input type="hidden" id="siteId" name="siteId" value="1160872">
-                  <input type="hidden" id="pageId" name="pageId" value="1160882">
-                  <div class="u-form-email u-form-group">
-                    <label for="email-cd2c" class="u-form-control-hidden u-label u-label-1">Email</label>
-                    <input type="email" placeholder="your email" id="email-cd2c" name="email" class="" required="">
-                  </div>
-                  <div class="u-form-email u-form-group">
-                    <label for="email-cd2c" class="u-form-control-hidden u-label u-label-1">Password</label>
-                    <input type="password" placeholder="Password" id="email-cd2c" name="password" class="" required="">
-                  </div>
-                  <button type="submit" class="btn btn-light"><a type="submit">Login
-                      <img src="../../assets/login02.png" height="10px" style="margin-left: 15px; margin-top: 15px;">
-                    </a></button>
-                  <div class="u-form-send-message u-form-send-success"> Thank you! Your message has been sent. </div>
-                  <div class="u-form-send-error u-form-send-message"> Unable to send your message. Please fix errors
-                    then try again. </div>
-                  <input type="hidden" value="" name="recaptchaResponse">
-                </form>
+                <mat-card class="example-card" fxFlex="25">
+                  <form class="example-form" [formGroup]="loginForm" (ngSubmit)="logIn()">
+                    <mat-form-field class="example-full-width" appearance="fill">
+                      <mat-label class="label">Email</mat-label>
+                      <input type="email" formControlName="email" matInput placeholder="Ex. pat@example.com">
+                      <mat-error>
+                        Please enter a valid email address
+                      </mat-error>
+
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                      <mat-label class="label">Password</mat-label>
+                      <input class="input" required pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,16}$"
+                        formControlName="password" type="password" matInput placeholder="Password">
+                      <mat-error>
+                        Please enter a valid Password
+                      </mat-error>
+
+                    </mat-form-field>
+                    <br><br>
+                    <button mat-raised-button color="primary" [disabled]="!loginForm.valid"
+                      (click)="openDialog()">Login</button>
+                  </form>
+                </mat-card>
               </div>
             </mat-tab>
             <mat-tab label="SignUp">
-              
               <div class="card-body">
-                <form role="search" 
-                (ngSubmit)="myForm.valid && postTeamDetails()">
-                  <div class="mb-3" style="margin: 3px;">
-                    <label for="exampleInputText" class="form-label">Full Name</label>
-                    <input required type="text" formControlName="name" class="form-control" id="exampleInputText" />
+                <mat-card class="example-card" fxFlex="25">
+                  <form class="example-form" [formGroup]="signupForm" (ngSubmit)="signupForm.valid && signUp()">
+                    <mat-form-field class="example-full-width" appearance="fill">
+                      <mat-label class="label">Name</mat-label>
+                      <input type="text" formControlName="name" matInput placeholder="EX. John Deo">
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                      <mat-label class="label">Date-Of-Birth</mat-label>
+                      <input class="input" formControlName="dob" type="date" matInput>
+                      <mat-error>
+                        Please enter valid Date Of Birth
+                      </mat-error>
+                    </mat-form-field>
 
-                  </div>
-                  <div class="mb-3" style="margin: 3px;">
-                    <label for="exampleInputEmail" class="form-label">Date-Of-Birth</label>
-                    <input type="date" class="form-control" formControlName="dob" id="exampleInputEmail"
-                      aria-describedby="emailHelp" />
+                    <mat-form-field class="example-full-width" appearance="fill">
+                      <mat-label class="label">Email</mat-label>
+                      <input class="input" required pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
+                        formControlName="email" type="email" matInput placeholder="Password">
+                      <mat-error>
+                        Please enter valid Email
+                      </mat-error>
+                    </mat-form-field>
 
-                  </div>
-                  <div class="mb-3" style="margin: 3px;">
-                    <label for="exampleInputEmail1" class="form-label">Email address</label>
-                    <input type="email" required pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
-                      class="form-control" formControlName="mail" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    <div class="invalid-feedback">
+                    <mat-form-field class="example-full-width" appearance="fill">
+                      <mat-label class="label">Password</mat-label>
+                      <input class="input" required pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,16}$"
+                        formControlName="password" type="password" matInput placeholder="Password">
+                      <mat-error>
+                        Please enter a valid Password
+                      </mat-error>
+                    </mat-form-field>
 
-                    </div>
-                  </div>
-                  <div class="mb-3" style="margin: 3px;">
-                    <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="text" required pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,16}$"
-                      class="form-control" formControlName="pass" id="exampleInputPassword1">
-                    <div class="invalid-feedback">
+                    <br><br>
+                    <button mat-raised-button color="primary" [disabled]="!signupForm.valid">Sign-Up</button>
+                  </form>
+                </mat-card>
 
-                    </div>
-                  </div>
-                  <button type="submit" class="btn btn-primary" [disabled]="!myForm">Sign-Up</button>
-                </form>
+              </div>
+            </mat-tab>
+            <mat-tab label="Admin-Login">
+              <div class="u-form u-form-1">
+                <mat-card class="example-card" fxFlex="25">
+                  <form class="example-form" [formGroup]="adminForm" (ngSubmit)="adminLogin()">
+                    <mat-form-field class="example-full-width" appearance="fill">
+                      <mat-label class="label">User-Name</mat-label>
+                      <input type="text" formControlName="username" matInput>
+                      <mat-error>
+                        Please enter a valid User Name
+                      </mat-error>
+
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                      <mat-label class="label">Password</mat-label>
+                      <input class="input" required pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,16}$"
+                        formControlName="pass" type="password" matInput placeholder="Password">
+                      <mat-error>
+                        Please enter a valid Password
+                      </mat-error>
+
+                    </mat-form-field>
+                    <br><br>
+                    <button mat-raised-button color="primary" [disabled]="!adminForm.valid" (click)="openAdmin()">Login</button>
+                  </form>
+                </mat-card>
               </div>
             </mat-tab>
           </mat-tab-group>
@@ -270,7 +305,8 @@
                         </path>
                       </svg></span>
                   </a>
-                  <a class="u-social-url" target="_blank" href="https://twitter.com/Shubham11618526?t=9eDLrbaAaN14sVlhQtE9Fw&s=03"><span
+                  <a class="u-social-url" target="_blank"
+                    href="https://twitter.com/Shubham11618526?t=9eDLrbaAaN14sVlhQtE9Fw&s=03"><span
                       class="u-icon u-icon-circle u-social-icon u-social-twitter u-icon-2"><svg class="u-svg-link"
                         preserveAspectRatio="xMidYMin slice" viewBox="0 0 112 112" style="">
                         <use xlink:href="#svg-fa5b"></use>
@@ -296,7 +332,8 @@
                         </path>
                       </svg></span>
                   </a>
-                  <a class="u-social-url" target="_blank" href="https://www.youtube.com/channel/UCLvc2K42TCTW2K7ESyOpCxw"><span
+                  <a class="u-social-url" target="_blank"
+                    href="https://www.youtube.com/channel/UCLvc2K42TCTW2K7ESyOpCxw"><span
                       class="u-icon u-icon-circle u-social-icon u-social-youtube u-icon-4"><svg class="u-svg-link"
                         preserveAspectRatio="xMidYMin slice" viewBox="0 0 112 112" style="">
                         <use xlink:href="#svg-6a3f"></use>
@@ -550,8 +587,8 @@
             <div class="u-container-layout u-similar-container u-container-layout-1">
               <h5 class="u-text u-text-1">Instagram</h5>
               <a href="https://www.instagram.com/ig_sealrocky/" target="_blank">
-              <img alt="" class="u-image u-image-default u-image-1" data-image-width="512" data-image-height="512"
-                src="../../assets/instagram.png">
+                <img alt="" class="u-image u-image-default u-image-1" data-image-width="512" data-image-height="512"
+                  src="../../assets/instagram.png">
               </a>
               <p class="u-text u-text-2">Elite SeaL Customs</p>
             </div>
@@ -560,8 +597,8 @@
             <div class="u-container-layout u-similar-container u-container-layout-2">
               <h5 class="u-text u-text-3">WhatsApp</h5>
               <a href="https://chat.whatsapp.com/Cur4POk7VQ7Jz9vr5cppI9" target="_blank">
-              <img alt="" class="u-image u-image-default u-image-2" data-image-width="512" data-image-height="512"
-                src="../../assets/whatsapp.png">
+                <img alt="" class="u-image u-image-default u-image-2" data-image-width="512" data-image-height="512"
+                  src="../../assets/whatsapp.png">
               </a>
               <p class="u-text u-text-4">Official SeaL Esports Group</p>
             </div>
@@ -570,8 +607,8 @@
             <div class="u-container-layout u-similar-container u-container-layout-3">
               <h5 class="u-text u-text-5">Discord</h5>
               <a href="https://discord.gg/shuVNhw" target="_blank">
-              <img alt="" class="u-image u-image-default u-image-3" data-image-width="512" data-image-height="512"
-                src="../../assets/discord.png">
+                <img alt="" class="u-image u-image-default u-image-3" data-image-width="512" data-image-height="512"
+                  src="../../assets/discord.png">
               </a>
               <p class="u-text u-text-6">SeaL Esports Server</p>
             </div>
@@ -581,13 +618,43 @@
               <h5 class="u-text u-text-7">YouTube</h5>
               <a href="https://www.youtube.com/c/DedGamer" target="_blank">
                 <img alt="" class="u-image u-image-default u-image-4" data-image-width="512" data-image-height="512"
-                src="../../assets/youtube.png">
+                  src="../../assets/youtube.png">
               </a>
               <p class="u-text u-text-8">DeD Gamer</p>
             </div>
           </div>
         </div>
       </div>
+      <h1 align="center" style="font-size: 40px;"> Game Screenshots </h1>
+    <br>
+    <div class="row m-0 px-4">
+        <div class="col-12 col-md-3">
+            <a>
+                <img src="../../../assets/ss01.jpeg" height="150px">
+            </a>
+        </div>
+        <div class="col-12 col-md-3">
+            <a>
+                <img src="../../../assets/ss03.jpeg" height="150px">
+            </a>
+        </div>
+     </div>
+     <div class="row m-0 px-4">
+        <div class="col-12 col-md-3">
+            <a>
+                <img src="../../../assets/ss04.jpeg" height="150px">
+            </a>
+        </div>
+        <div class="col-12 col-md-3">
+          <a href="">
+            <video height="150px"  controls>
+                <source src="../../../assets/ss02.mp4" type="video/mp4">
+                
+                Your browser does not support HTML video.
+              </video>
+            </a>
+        </div>
+     </div>
     </div>
   </section>
 

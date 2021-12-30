@@ -1,8 +1,12 @@
 
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AdminComponent } from '../admin/admin.component';
 import { ApiService } from '../api.service/api.service';
+import { DialogComponent } from '../dialog/dialog.component';
 import { IndexModel } from './index.model';
 
 @Component({
@@ -12,49 +16,93 @@ import { IndexModel } from './index.model';
 })
 export class IndexComponent implements OnInit {
 
-  myId!: any;
-  myForm!: any;
+  signupForm!: FormGroup;
+  loginForm!: FormGroup;
+  adminForm!: FormGroup;
 
-  registrationModelObj : IndexModel = new IndexModel();
-
-  constructor( private api : ApiService, private router : Router, private route : ActivatedRoute) { }
+  constructor(private formBuilder: FormBuilder, private _http: HttpClient, private router: Router, public dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.myForm = new FormGroup({
-      name: new FormControl('',[Validators.required]),
-      dob: new FormControl('',[Validators.required]),
-      mail: new FormControl('',[Validators.required]),
-      pass: new FormControl('',[Validators.required])
-    });
+    this.signupForm = this.formBuilder.group({
+      name: ['', Validators.required],
+      dob: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.pattern]]
+    })
+
+    this.loginForm = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.pattern]]
+    })
+
+    this.adminForm = this.formBuilder.group({
+      username: ['', Validators.required],
+      pass: ['', [Validators.required, Validators.pattern]]
+    })
+
   }
 
-  postTeamDetails(){
-    this.registrationModelObj.name = this.myForm.value.name;
-    this.registrationModelObj.dob = this.myForm.value.dob;
-    this.registrationModelObj.mail = this.myForm.value.mail;
-    this.registrationModelObj.pass = this.myForm.value.pass;
-    
+  get email(){return this.loginForm.get('email')}
+  get password(){return this.loginForm.get('password')}
 
-    this.api.postEmail(this.registrationModelObj)
-    .subscribe(res=>{
-      console.log(res);
-      alert("Team Details Added Successfully....");
-      this.router.navigate(['registrationalert'])
-    },
-    err=>{
+  get username(){return this.loginForm.get('username')}
+  get pass(){return this.loginForm.get('pass')}
+
+  logIn() {
+    this._http.get<any>("http://localhost:3000/posts").subscribe(res => {
+      const user = res.find((a: any) => {
+        return a.email === this.loginForm.value.email && a.password === this.loginForm.value.password
+      })
+      if (user) {
+        alert("Login Successfully");
+        this.loginForm.reset();
+      } else {
+        alert("User Not Found !!")
+      }
+    }, err => {
+      alert("Something Went Wrong...")
+    })
+  }
+
+  signUp() {
+    this._http.post<any>("http://localhost:3000/posts", this.signupForm.value).subscribe(res => {
+      alert("Sign-Up Successfully");
+      this.signupForm.reset();
+    }, err => {
       alert("Something Went Wrong")
     })
   }
 
-  onSubmit(){
-    let formdata={
-      name:this.myForm.controls.name.value,
-      dob:this.myForm.controls.dob.value,
-      mail:this.myForm.controls.mail.value,
-      pass:this.myForm.controls.pass.value
-    }
-    localStorage.setItem("formdata", JSON.stringify(formdata));
-  console.log(this.myForm)
+  adminLogin() {
+    this._http.get<any>("http://localhost:3000/admin").subscribe(res => {
+      const user = res.find((a: any) => {
+        return a.username === this.adminForm.value.username && a.pass === this.adminForm.value.pass
+      })
+      if (user) {
+        alert("Login Successfully");
+        this.adminForm.reset();
+      } else {
+        alert("User Not Found !!")
+      }
+    }, err => {
+      alert("Something Went Wrong...")
+    })
+  }
+
+  openDialog(){
+    let dialogRef = this.dialog.open(DialogComponent);
+
+    dialogRef.afterClosed().subscribe(res => {
+      console.log(`Dialog result: ${res}`);
+    })
+  }
+
+  openAdmin(){
+    let dialogRef = this.dialog.open(AdminComponent);
+
+    dialogRef.afterClosed().subscribe(res => {
+      console.log(`Dialog result: ${res}`);
+    })
   }
 
 }

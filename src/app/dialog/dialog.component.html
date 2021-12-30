@@ -1,0 +1,320 @@
+
+<div class="modal-body">
+  <div class="container-fluid">
+    <mat-card class="example-card" fxFlex="25">
+      <form class="example-form" [formGroup]="myForm" (ngSubmit)="myForm.valid && teamDetails()">
+          <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label class="label">Team Name</mat-label>
+              <input type="text" formControlName="teamName" matInput placeholder="Ex. SeaL Esports">
+              <mat-error>
+                  Please enter a valid Team Name
+              </mat-error>
+          </mat-form-field>
+          <br>
+          <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label class="label">Leader</mat-label>
+              <input type="text" formControlName="leaderIGN" matInput>
+              <mat-error>
+                  Please enter a valid Name
+              </mat-error>
+          </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label class="label">Leader I'd</mat-label>
+              <input type="text" (keypress)="numberOnly($event)" formControlName="leaderId" matInput>
+              <mat-error>
+                  Please enter a valid i'd
+              </mat-error>
+          </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label class="label">WhatsApp No.</mat-label>
+              <input type="text" (keypress)="numberOnly($event)" formControlName="whatappNo" matInput>
+              <mat-error>
+                  Please enter a valid Number
+              </mat-error>
+          </mat-form-field>
+          <br>
+          <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label class="label">Player 02</mat-label>
+              <input type="text" formControlName="Player02IGN" matInput>
+              <mat-error>
+                  Please enter a valid Name
+              </mat-error>
+          </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label class="label">Player 02 I'D</mat-label>
+              <input type="text" (keypress)="numberOnly($event)" formControlName="Player02Id" matInput>
+              <mat-error>
+                  Please enter a valid i'd
+              </mat-error>
+          </mat-form-field>
+          <br>
+          <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label class="label">Player 03</mat-label>
+              <input type="text" formControlName="Player03IGN" matInput>
+              <mat-error>
+                  Please enter a valid Name
+              </mat-error>
+          </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label class="label">Player 03 I'D</mat-label>
+              <input type="text" (keypress)="numberOnly($event)" formControlName="Player03Id" matInput>
+              <mat-error>
+                  Please enter a valid i'd
+              </mat-error>
+          </mat-form-field>
+          <br>
+          <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label class="label">Player 04</mat-label>
+              <input type="text" formControlName="Player04IGN" matInput>
+              <mat-error>
+                  Please enter a valid Name
+              </mat-error>
+          </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label class="label">Player 04 I'D</mat-label>
+              <input type="text" (keypress)="numberOnly($event)"  formControlName="Player04Id" matInput>
+              <mat-error>
+                  Please enter a valid i'd
+              </mat-error>
+          </mat-form-field>
+          <mat-dialog-actions>
+              <div class="center">
+                  <div class="outer circle">
+                      <button type="submit" mat-button [mat-dialog-close]="true" [disabled]="!myForm">Submit</button>
+                      <span></span>
+                      <span></span>
+                  </div>
+              </div>
+              <div class="center">
+                  <div class="outer circle">
+                      <button type="submit" mat-button mat-dialog-close mat-dialog-close="false">Close</button>
+                      <span></span>
+                      <span></span>
+                  </div>
+              </div>
+          </mat-dialog-actions>
+      </form>
+  </mat-card> -->
+  </div>
+</div>
+
+
+
+<!-- <h2 mat-dialog-title> Team Registration </h2>
+<mat-dialog-content>You need to filled the correct informtion</mat-dialog-content>
+
+
+
+<mat-card class="example-card" fxFlex="25">
+    <form class="example-form" [formGroup]="myForm" (ngSubmit)="myForm.valid && teamDetails()">
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label class="label">Team Name</mat-label>
+            <input type="text" formControlName="teamName" matInput placeholder="Ex. SeaL Esports">
+            <mat-error>
+                Please enter a valid Team Name
+            </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label class="label">Leader</mat-label>
+            <input type="text" formControlName="leaderIGN" matInput>
+            <mat-error>
+                Please enter a valid Name
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label class="label">Leader I'd</mat-label>
+            <input type="text" (keypress)="numberOnly($event)" formControlName="leaderId" matInput>
+            <mat-error>
+                Please enter a valid i'd
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label class="label">WhatsApp No.</mat-label>
+            <input type="text" (keypress)="numberOnly($event)" formControlName="whatappNo" matInput>
+            <mat-error>
+                Please enter a valid Number
+            </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label class="label">Player 02</mat-label>
+            <input type="text" formControlName="Player02IGN" matInput>
+            <mat-error>
+                Please enter a valid Name
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label class="label">Player 02 I'D</mat-label>
+            <input type="text" (keypress)="numberOnly($event)" formControlName="Player02Id" matInput>
+            <mat-error>
+                Please enter a valid i'd
+            </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label class="label">Player 03</mat-label>
+            <input type="text" formControlName="Player03IGN" matInput>
+            <mat-error>
+                Please enter a valid Name
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label class="label">Player 03 I'D</mat-label>
+            <input type="text" (keypress)="numberOnly($event)" formControlName="Player03Id" matInput>
+            <mat-error>
+                Please enter a valid i'd
+            </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label class="label">Player 04</mat-label>
+            <input type="text" formControlName="Player04IGN" matInput>
+            <mat-error>
+                Please enter a valid Name
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label class="label">Player 04 I'D</mat-label>
+            <input type="text" (keypress)="numberOnly($event)"  formControlName="Player04Id" matInput>
+            <mat-error>
+                Please enter a valid i'd
+            </mat-error>
+        </mat-form-field>
+        <mat-dialog-actions>
+            <div class="center">
+                <div class="outer circle">
+                    <button type="submit" [disabled]="!myForm">Submit</button>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <div class="center">
+                <div class="outer circle">
+                    <button type="submit" mat-button mat-dialog-close mat-dialog-close="false">Close</button>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </mat-dialog-actions>
+    </form>
+</mat-card> -->
+
+
+
+
+<!-- <mat-card class="example-card" fxFlex="25">
+        <form class="example-form" [formGroup]="myForm" (ngSubmit)="myForm.valid && teamDetails()">
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label class="label">Team Name</mat-label>
+            <input type="text"
+                class="form-control" formControlName="teamName">
+            <mat-error>
+              Please enter a valid Team Name
+            </mat-error>  
+          </mat-form-field>
+          <br>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label class="label">Leader</mat-label>
+            <input type="text" style="margin: 10px;"
+                    [ngClass]="{'is-invalid': myForm.get('leaderIGN').touched && myForm.get('leaderIGN').invalid}"
+                    class="form-control" formControlName="leaderIGN">
+            <mat-error>
+              Please enter a valid Name
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label class="label">Leader I'D</mat-label>
+            <input type="number" style="margin: 10px;"
+                    [ngClass]="{'is-invalid': myForm.get('leaderId').touched && myForm.get('leaderId').invalid}"
+                    class="form-control" formControlName="leaderId">
+            <mat-error>
+              Please enter a valid i'd
+            </mat-error>  
+          </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label class="label">WhatsApp No.</mat-label>
+            <input type="number"
+                    [ngClass]="{'is-invalid': myForm.get('whatappNo').touched && myForm.get('whatappNo').invalid}"
+                    class="form-control" formControlName="whatappNo" style="margin: 10px;">
+            <mat-error>
+              Please enter a valid Number
+            </mat-error>
+          </mat-form-field>
+          <br>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label class="label">Player 02</mat-label>
+            <input type="text"
+                    [ngClass]="{'is-invalid': myForm.get('Player02IGN').touched && myForm.get('Player02IGN').invalid}"
+                    class="form-control" formControlName="Player02IGN" style="margin: 10px;">
+            <mat-error>
+              Please enter a valid Name
+            </mat-error>  
+          </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label class="label">Player 02 I'D</mat-label>
+            <input type="number"
+                    [ngClass]="{'is-invalid': myForm.get('Player02Id').touched && myForm.get('Player02Id').invalid}"
+                    class="form-control" formControlName="Player02Id" style="margin: 10px;">
+            <mat-error>
+              Please enter a valid i'd
+            </mat-error>
+          </mat-form-field>
+          <br>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label class="label">Player 03</mat-label>
+            <input type="text"
+                    [ngClass]="{'is-invalid': myForm.get('Player03IGN').touched && myForm.get('Player03IGN').invalid}"
+                    class="form-control" formControlName="Player03IGN" style="margin: 10px;">
+            <mat-error>
+              Please enter a valid Name
+            </mat-error>  
+          </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label class="label">Player 03 I'D</mat-label>
+            <input type="number" style="margin: 10px;"
+                    [ngClass]="{'is-invalid': myForm.get('Player03Id').touched && myForm.get('Player03Id').invalid}"
+                    class="form-control" formControlName="Player03Id">
+            <mat-error>
+              Please enter a valid i'd
+            </mat-error>
+          </mat-form-field>
+          <br>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label class="label">Player 04</mat-label>
+            <input type="text" style="margin: 10px;"
+                    [ngClass]="{'is-invalid': myForm.get('Player04IGN').touched && myForm.get('Player04IGN').invalid}"
+                    class="form-control" formControlName="Player04IGN">
+            <mat-error>
+              Please enter a valid Name
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label class="label">Player 04 I'D</mat-label>
+            <input type="number" style="margin: 10px;"
+                    [ngClass]="{'is-invalid': myForm.get('Player04Id').touched && myForm.get('Player04Id').invalid}"
+                    class="form-control" formControlName="Player04Id">
+            <mat-error>
+              Please enter a valid i'd
+            </mat-error>
+          </mat-form-field>
+          <br><br>
+         
+        </form>
+        <mat-dialog-actions>
+            <div class="center">
+                <div class="outer circle">
+                    <button type="submit" [disabled]="!myForm">Submit</button>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <div class="center">
+                <div class="outer circle">
+                    <button type="submit" mat-button mat-dialog-close mat-dialog-close="false">Close</button>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </mat-dialog-actions>
+      </mat-card> -->

@@ -4,6 +4,69 @@
       "id": 1,
       "title": "json-server",
       "author": "typicode"
+    },
+    {
+      "name": "Shubham Rai ",
+      "dob": "2021-12-08",
+      "email": "shubhamrai691@gmail.com",
+      "password": "Rai@9993",
+      "id": 2
+    },
+    {
+      "name": "Amit",
+      "dob": "2021-12-02",
+      "email": "amit@abc.com",
+      "password": "Amit@1234",
+      "id": 3
+    },
+    {
+      "name": "Shubham Rai ",
+      "dob": "2021-12-15",
+      "email": "shubhamrai691@gmail.com",
+      "password": "Rai@9993",
+      "id": 4
+    },
+    {
+      "name": "Shubham Rai ",
+      "dob": "2021-12-08",
+      "email": "shubhamrai691@gmail.com",
+      "password": "Rai@9993",
+      "id": 5
+    },
+    {
+      "name": "Shubham Rai",
+      "dob": "2021-12-15",
+      "email": "egle7388@gmail.com",
+      "password": "Rai@1234",
+      "id": 6
+    },
+    {
+      "name": "Shubham Rai",
+      "dob": "2021-12-09",
+      "email": "abc@abc.com",
+      "password": "Rai@9993",
+      "id": 7
+    },
+    {
+      "name": "shubhamrai691@gmail.com",
+      "dob": "2021-12-09",
+      "email": "shubhamrai691@gmail.com",
+      "password": "Rai@9993",
+      "id": 8
+    },
+    {
+      "name": "gireesha",
+      "dob": "2021-12-15",
+      "email": "gireeshagiri1996@gmail.com",
+      "password": "1234567qwertyQ",
+      "id": 9
+    }
+  ],
+  "admin": [
+    {
+      "username": "rocky007",
+      "pass": "Rai@9993",
+      "id": 1
     }
   ],
   "comments": [
@@ -11,6 +74,21 @@
       "id": 1,
       "body": "some comment",
       "postId": 1
+    }
+  ],
+  "registration": [
+    {
+      "teamName": "Seal Esports",
+      "leaderIGN": "Rocky",
+      "leaderId": "101",
+      "whatappNo": 9644418800,
+      "Player02IGN": "Pihu",
+      "Player02Id": 102,
+      "Player03IGN": "Navi",
+      "Player03Id": 103,
+      "Player04IGN": "Tyagi",
+      "Player04Id": 104,
+      "id": 2
     }
   ],
   "profile": {

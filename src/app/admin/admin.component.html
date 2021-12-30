@@ -3,75 +3,66 @@
         <img src="../../assets/add-group01.png" height="40px" style="margin: 10px;">
     </a>
 </div>
-
 <table class="table mt-3">
-
     <thead>
-  
         <tr>
             <th scope="col"> No. </th>
-  
+
             <th scope="col"> Team Name </th>
-  
+
             <th scope="col"> Leader </th>
-  
+
             <th scope="col">Leader I'D</th>
-  
+
             <th scope="col"> WhatApp No </th>
-          
+
             <th scope="col"> Player 02 </th>
-  
+
             <th scope="col"> I'd </th>
-  
+
             <th scope="col"> Player 03 </th>
-  
+
             <th scope="col"> I'd </th>
-  
+
             <th scope="col"> Player 04 </th>
-  
+
             <th scope="col"> I'd </th>
-  
+
             <th scope="col"> Action </th>
         </tr>
-  
     </thead>
-  
     <tbody>
-  
-      <tr *ngFor="let row of teamDetail">
-  
-          <td>{{row.id}}</td>
-  
-          <td>{{row.teamName}}</td>
-  
-          <td>{{row.leaderIGN}}</td>
-  
-          <td>{{row.leaderId}}</td>
-  
-          <td>{{row.whatappNo}}</td>
-  
-          <td>{{row.Player02IGN}}</td>
-  
-          <td>{{row.Player02Id}}</td>
-  
-          <td>{{row.Player03IGN}}</td>
-  
-          <td>{{row.Player03Id}}</td>
-  
-          <td>{{row.Player04IGN}}</td>
-  
-          <td>{{row.Player04Id}}</td>
-  
-          <td>
-              <a (click)="openDialog()">
-                  <img src="../../assets/edit.png" height="30px" style="margin: 5px;">
-              </a>
-              <a (click)="deleteTeamDetails(row)">
-                  <img src="../../assets/delete.png" height="30px" style="margin: 5px; cursor: pointer;">
-              </a>
-          </td>
-  
-      </tr>
-  
-  </tbody>
-  </table>
+        <tr *ngFor="let row of teamDetail">
+
+            <td>{{row.id}}</td>
+
+            <td>{{row.teamName}}</td>
+
+            <td>{{row.leaderIGN}}</td>
+
+            <td>{{row.leaderId}}</td>
+
+            <td>{{row.whatappNo}}</td>
+
+            <td>{{row.Player02IGN}}</td>
+
+            <td>{{row.Player02Id}}</td>
+
+            <td>{{row.Player03IGN}}</td>
+
+            <td>{{row.Player03Id}}</td>
+
+            <td>{{row.Player04IGN}}</td>
+
+            <td>{{row.Player04Id}}</td>
+            <td>
+                <a (click)="openDialog()">
+                    <img src="../../assets/edit.png" height="30px" style="margin: 5px;">
+                </a>
+                <a (click)="deleteTeamDetails(row)">
+                    <img src="../../assets/delete.png" height="30px" style="margin: 5px; cursor: pointer;">
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>
